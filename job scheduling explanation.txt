@@ -1,0 +1,42 @@
+This Python code implements a simple greedy algorithm for job scheduling with deadlines and profits. Let's break down the code and then discuss the output.
+
+### Explanation of the code:
+
+1. **`job` class**:
+    - This class represents a job and has three attributes: `id`, `deadline`, and `profit`.
+
+2. **`Solution` class**:
+    - This class contains the `jobScheduling` method which takes a list of `jobs` as input.
+    - It sorts the `jobs` list in descending order based on their profits.
+    - It finds the maximum deadline among all jobs to determine the length of the time slot array.
+    - It initializes an array `slot` to keep track of jobs scheduled at different time slots. Initially, all slots are set to `-1`.
+    - It iterates through each job in the sorted list and assigns it to the latest available time slot before its deadline.
+    - It returns the count of jobs scheduled and the total profit earned.
+
+3. **Main block**:
+    - It creates a list of `jobs`.
+    - It calls the `jobScheduling` method with the list of jobs and prints the count of jobs scheduled and the total profit earned.
+
+### Output explanation:
+
+The `jobs` list consists of four jobs:
+- Job 1: Deadline = 4, Profit = 20
+- Job 2: Deadline = 1, Profit = 10
+- Job 3: Deadline = 2, Profit = 40
+- Job 4: Deadline = 2, Profit = 30
+
+The algorithm schedules jobs in a way that maximizes profit. It first sorts the jobs by profit in descending order. Then, it iterates through each job and assigns it to the latest available time slot before its deadline. If the latest slot before the deadline is already taken, it moves to the previous slot, and so on.
+
+Let's go through the scheduling:
+
+- Job 3 (Profit = 40) can be scheduled at slot 2.
+- Job 4 (Profit = 30) can also be scheduled at slot 2, as it has the same deadline as Job 3.
+- Job 1 (Profit = 20) can be scheduled at slot 4.
+- Job 2 (Profit = 10) cannot be scheduled within its deadline (slot 1), so it is skipped.
+
+Thus, the output will be:
+```
+3 90
+```
+- `3` indicates the count of jobs scheduled.
+- `90` indicates the total profit earned by scheduling these jobs.
